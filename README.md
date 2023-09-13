@@ -1,4 +1,4 @@
-The Study Helper App - Backend is the server-side component of our study management application. It is built using Ruby on Rails, a popular web application framework. This README file provides an overview of the backend application, installation instructions, and usage guide.
+The Study Helper API is the server-side component of our study management application. It is built using Ruby on Rails, a popular web application framework. This README file provides an overview of the backend application, installation instructions, and usage guide.
 
 Features
 1. Activity Management
