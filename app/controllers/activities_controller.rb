@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-    before_action :require_login, except: [:index, :show]
+    #before_action :require_login, except: [:index, :show]
     before_action :set_activity, only: [:show, :edit, :update, :destroy]
     
     # GET /activities
@@ -16,8 +16,8 @@ class ActivitiesController < ApplicationController
     # POST /activities
     def create
       @activity = Activity.new(activity_params)
-      @activity.user = current_user
-      puts "Current User: #{current_user.inspect}"
+      #@activity.user = current_user
+      #puts "Current User: #{current_user.inspect}"
   
       if @activity.save
         render json: @activity, status: :created
@@ -35,7 +35,7 @@ class ActivitiesController < ApplicationController
     end
   
     def activity_params
-      params.require(:activity).permit(:title, :description, :date)
+      params.require(:activity).permit(:title, :description, :date, :user_id)
     end
   
     def require_login

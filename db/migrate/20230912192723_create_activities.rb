@@ -4,6 +4,7 @@ class CreateActivities < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :description
       t.date :date
+      t.bigint :user_id
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
