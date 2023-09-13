@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    before_action :authorized, except: [:login ]
+    before_action :authorized, except: [:login, :show, :index, :create]
     
 
     def authorized
