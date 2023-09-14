@@ -38,8 +38,49 @@ rails server
 Usage
 API Endpoints:
 
+List All Activities
+Endpoint: GET /activities
+Description: Get a list of all study activities.
+Usage: Retrieve all activities to display on the frontend.
 
-Authentication:
+Retrieve a Single Activity
+Endpoint: GET /activities/:id
+Description: Get details of a specific study activity.
+Usage: Fetch the details of a specific activity for viewing or editing.
+
+Create a New Activity
+Endpoint: POST /activities
+Description: Create a new study activity.
+Usage: Add a new activity to the study plan.
+
+Update an Activity
+Endpoint: PUT /activities/:id
+Description: Update the details of an existing study activity.
+Usage: Modify the details of an activity, such as changing the due date or description.
+
+Delete an Activity
+Endpoint: DELETE /activities/:id
+Description: Delete a study activity.
+Usage: Remove an activity that is no longer relevant or has been completed.
+
+Create a New User
+Endpoint: POST /users
+Description: Register a new user account.
+Usage: Allows users to create an account by providing their name, email, age, password, and password confirmation. Upon successful registration, a new user is created, and the user is logged in.
+
+User Login
+Endpoint: POST /login
+Description: Authenticate a user and generate a session.
+Usage: Allows users to log in by providing their email and password. If the provided credentials are valid, the user is logged in, and a session is created.
+
+Authentication 
+The Study Helper App includes an authentication mechanism to ensure that only authorized users can access certain parts of the application. The authentication logic is implemented in the ApplicationController:
+
+Authorization Check: Before allowing access to certain actions, the before_action :authorized filter is applied. This filter checks for the presence of a :user_id in the session, which indicates that a user is authenticated and logged in.
+
+Excluded Actions: Some actions, such as login, show, index, and create, are exempt from the authorization check using except: [:login, :show, :index, :create]. This means that these actions can be accessed without requiring authentication.
+
+Unauthorized Access Handling: If a user is not authorized (i.e., session[:user_id] is not present), the API will return a JSON response with an "Unauthorized" error message and a status code of 401 (HTTP status code for unauthorized access).
 
 
 Feedback and Contributions
